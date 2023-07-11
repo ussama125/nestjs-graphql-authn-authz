@@ -1,0 +1,74 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  _id: String!
+
+  """User firstName """
+  firstName: String!
+
+  """User lastName """
+  lastName: String!
+
+  """User email """
+  email: String!
+
+  """User roles"""
+  roles: [String!]!
+}
+
+type LoggedUserOutput {
+  """Generated access_token of the user"""
+  access_token: String!
+}
+
+type Query {
+  users: [User!]!
+  user(email: String!): User!
+}
+
+type Mutation {
+  loginUser(loginUserInput: LoginUserInput!): LoggedUserOutput!
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(email: String!, updateUserInput: UpdateUserInput!): User!
+  removeUser(email: String!): User!
+  addAdminRole(email: String!): User!
+  removeAdminRole(email: String!): User!
+}
+
+input LoginUserInput {
+  """email of the user"""
+  email: String!
+
+  """password of the user"""
+  password: String!
+}
+
+input CreateUserInput {
+  """first name of the user"""
+  firstName: String!
+
+  """last name of the user"""
+  lastName: String!
+
+  """email of the user"""
+  email: String!
+
+  """password of the user"""
+  password: String!
+}
+
+input UpdateUserInput {
+  """first name of the user"""
+  firstName: String
+
+  """last name of the user"""
+  lastName: String
+
+  """email of the user"""
+  email: String
+
+  """password of the user"""
+  password: String
+}
